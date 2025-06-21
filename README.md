@@ -41,7 +41,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Click here](https://github.com/Antonio0402/browser-extension-menu.git)
-- Live Site URL: [Click here](https://your-live-site-url.com)
+- Live Site URL: [Click here](https://browser-extension-menu.fly.dev/)
 
 ## My process
 
