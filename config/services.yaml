@@ -17,7 +17,7 @@ services:
         resource: '../src/'
     App\Repository\ExtensionRepository:
         arguments:
-            $jsonFilePath: '%kernel.project_dir%/browser-extensions-manager-ui-main/data.json'
+            $jsonFilePath: '%kernel.project_dir%/src/Repository/data.json'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
