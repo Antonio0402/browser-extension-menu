@@ -1,0 +1,37 @@
+<div
+    data-controller="extension"
+    class="extension-card | flex flex-col justify-between gap-7 bg-neutral dark:bg-neutral-700 rounded-2xl p-5 border border-neutral-300 dark:border-neutral-500 max-w-sm min-h-[200px] shadow-md">
+    <div class="extension-card__header | flex gap-4">
+        <div class="extension-icon |">
+            <img class="max-w-[60px]" src="{{ asset(extension.logo) }}" alt="logo-devlens"/>
+        </div>
+        <div class="text-left">
+            <h3 class="extension-title | text-card-title">{{ extension.name }}</h3>
+            <p class="extension-summary | text-neutral-400">{{ extension.description }}</p>
+        </div>
+    </div>
+    <div class="extension-cart__buttons | flex items-center justify-between">
+        <button data-extension="{{ extension.name|lower }}"
+                data-action="extension#removeExtension"
+                class="px-4 py-[10px] min-w-16 rounded-[28px] shadow-md
+                border border-neutral-300 bg-neutral hover:bg-accent-red-500 hover:text-neutral hover:border-accent-red-500
+                focus:bg-neutral-100 dark:focus:bg-neutral-700 focus:outline-accent-red-500 transition-all duration-300
+                dark:border-neutral-500 dark:bg-neutral-700 dark:hover:text-neutral-900 dark:focus:bg-neutral-600">
+            Remove
+        </button>
+        <label
+            class="extension-switch | bg-neutral-300 rounded-full max-w-[38px] w-full h-[22px] relative
+            focus:outline-accent-red-500 focus:outline-offset-2 transition-all duration-300 cursor-pointer"
+            tabindex="0"
+            for="extension-toggle-{{ extension.name|lower }}">
+            <input hidden class="extension-toggle | peer"
+                   type="checkbox"
+                   data-value="true"
+                   id="extension-toggle-{{ extension.name|lower }}"
+                   name="extension-toggle-{{ extension.name|lower }}"
+                {{ extension.isActive is same as(true) ? 'checked' : null }}
+                   data-action="extension#toggleExtension"
+            >
+        </label>
+    </div>
+</div>

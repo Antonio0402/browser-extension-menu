@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block title %}Inactive Extensions{% endblock %}
+
+{% block body %}
+    <section class="extension-wrapper | mt-11 sm:mt-[74px] text-center
+">
+        <div class="extension-header | flex flex-col gap-[27px] items-center mb-[41px] sm:flex-row sm:justify-between">
+            <h2 class="text-head">Extension List</h2>
+            <div class="extension-filter-group flex gap-4">
+                <a href="{{ path('app_homepage') }}"
+                   class="text-button px-[15px] py-4 min-w-16 hover:text-neutral rounded-[28px] shadow-md border border-neutral-300 bg-neutral text-neutral-900 hover:bg-accent-red-500">All</a>
+                <a href="{{ path('app_filter_active') }}"
+                   class="text-button px-[15px] py-4 min-w-16 hover:text-neutral rounded-[28px] shadow-md border border-neutral-300 bg-neutral text-neutral-900 hover:bg-accent-red-500">Active</a>
+                <a href="{{ path('app_filter_inactive') }}"
+                   class="text-button px-[15px] py-4 min-w-16 hover:text-neutral rounded-[28px] shadow-md border border-neutral-300 bg-accent-red-500 text-neutral hover:bg-accent-red-500">Inactive</a>
+            </div>
+        </div>
+        <div class="extension-list | grid grid-cols-1 justify-items-center md:grid-cols-3 grid-flow-row gap-3">
+            {% for extension in extensions %}
+                {{ include('main/_extensionCard.html.twig') }}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+    :root {
+        /* For example hsl(198deg 93% 60% / <alpha-value>) */
+        --clr-neutral-900: 227deg 75% 14%;
+        --clr-neutral-800: 226deg 25% 17%;
+        --clr-neutral-700: 225deg 23% 24%;
+        --clr-neutral-600: 226deg 11% 37%;
+        --clr-neutral-300: 0deg 0% 78%;
+        --clr-neutral-200: 217deg 61% 90%;
+        --clr-neutral-100: 0deg 0% 93%;
+        --clr-neutral-0: 200deg 60% 99%;
+
+        /*Red*/
+
+        --clr-red-400: 3deg 86% 64%;
+        --clr-red-500: 3deg 71% 56%;
+        --clr-red-700: 3deg 77% 44%;
+
+        /*Gradient*/
+
+        --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+        --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+        /*Fonts*/
+        --ff-primary: 'Noto Sans', sans-serif;
+        --fs-400: 1rem; /* 16px */
+        --fs-500: 1.125rem; /* 18px */
+        --fs-600: 1.25rem; /* 20px */
+        --fs-700: 1.5rem; /* 24px */
+        --fs-800: 2rem; /* 32px */
+        --fs-900: 3rem; /* 48px */
+
+        /*Font Size*/
+        --fs-body: var(--fs-400);
+        --fs-primary-heading: var(--fs-800);
+        --fs-card-title: var(--fs-600);
+        --fs-button: var(--fs-500);
+        --fs-search-input: var(--fs-700);
+
+        /*Leading*/
+        --leading-1-4: 1.4;
+    }
+}
+
+@layer components {
+    .extension-switch {
+        &::before {
+            box-sizing: border-box;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 20px;
+            margin: 1px;
+            background-color: theme(colors.neutral.DEFAULT);
+            border-radius: 100%;
+            transition: all;
+            transition-duration: 0.3s;
+        }
+
+        &:has(input:checked)::before {
+            transform: translateX(calc(100% - 2px));
+            transition: all 0.3s;
+        }
+
+        &:has(input:checked) {
+            background-color: theme(colors.red.500);
+        }
+    }
+}
+
+@layer utilities {
+    .text-head {
+        @apply text-[length:var(--fs-primary-heading)] font-bold;
+    }
+
+    .text-body {
+        @apply text-[length:var(--fs-body)] font-normal;
+    }
+
+    .text-card-title {
+        @apply text-[length:var(--fs-card-title)] font-bold;
+    }
+
+    .text-button {
+        @apply text-[length:var(--fs-button)] font-normal leading-wide-1-4;
+    }
+
+    .text-search-input {
+        @apply text-[length:var(--fs-search-input)] font-normal;
+    }
+
+    .main-container {
+        @apply max-w-[1169px] mx-auto
+    }
+
+    .section-constraint {
+        @apply px-4 py-6;
+    }
+
+}
+
+@layer variants {
+    @screen xs {
+        :root {
+            --fs-400: 1rem; /* 16px */
+            --fs-500: 1.125rem; /* 18px */
+            --fs-600: 1.25rem; /* 16px */
+            --fs-700: 1.5rem; /* 20px */
+            --fs-800: 2rem; /* 32px */
+            --fs-900: 3rem; /* 48px */
+        }
+
+        .section-constraint {
+            @apply px-48 py-10;
+        }
+    }
+}
